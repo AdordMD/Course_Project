@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Items</title>
+</head>
+<body>
+    <h1>Save Items</h1>
+    <form method="POST">
+        <p>Product ID: {{ product.id }}</p>
+        <p>Full Name: {{ product.full_name }}</p>
+        <p>Specification: {{ product.specification }}</p>
+        <p>Stock: {{ quantity }}</p>
+        <p>Price: {{ product.price }}</p>
+        <p>Currency: {{ product.currency }}</p>
+        <p>Total Price: {{ quantity * product.price }}</p>
+    </form>
+
+    <br>
+    <a href="/">Back to Home</a> <!-- Powrót do strony index -->
+    <br>
+    <a href="/product_categories">Back to Product Categories</a> <!-- Powrót do strony product_categories -->
+
+    <ul>
+        {% for item in items %}
+        <li>Product ID: {{ item.product_id }} | Full Name: {{ item.full_name }} | Specification: {{ item.specification }} | Stock: {{ item.stock }} | Price: {{ item.price }} | Currency: {{ item.currency }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

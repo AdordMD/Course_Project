@@ -1,0 +1,39 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplikacja wspomagająca</title>
+    <style>
+        .categories-container {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            margin-top: -10px;
+        }
+        .category-link {
+            margin-bottom: 20px;
+        }
+        .category-item {
+            display: flex;
+            align-items: center;
+        }
+        .category-image {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aplikacja wspomagająca</h1>
+    <div class="categories-container">
+        <div class="category-item">
+            <img class="category-image" src="{{ url_for('static', filename=categories[0].image) }}" alt="Obrazek">
+            <a class="category-link" href="{{ categories[0].url }}">{{ categories[0].name }}</a>
+        </div>
+        {% for category in categories[1:] %}
+            <a class="category-link" href="{{ category.url }}">
+                {{ category.name }}
+            </a>
+        {% endfor %}
+    </div>
+</body>
+</html>

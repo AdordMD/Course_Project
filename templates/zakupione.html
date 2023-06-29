@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakupione</title>
+</head>
+<body>
+    <h1>Zakupione</h1>
+    <ul>
+        {% for item in purchased_products %}
+            <p>{{ item.full_name }} - {{ item.specification }} - {{ item.stock }}</p>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+    <br>
+    <a href="/products">Back to Product Categories</a>
+
+</body>
+</html>

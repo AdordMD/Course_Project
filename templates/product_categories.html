@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Categories</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Categories</h1>
+    <table>
+        <tr>
+            <th>Full Name</th>
+            <th>Specification</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Quantity to Purchase</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.full_name }}</td>
+            <td>{{ product.specification }}</td>
+            <td>{{ product.stock }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+                <form method="POST" action="/save_items/{{ product.id }}">
+                    <input type="number" name="quantity" min="0" step="1" required>
+                    <input type="submit" value="Save">
+                </form>
+        </td>
+</tr>
+{% endfor %}
+    </table>
+    <br>
+    <br>
+    <a href="/">Back to Home</a>
+    <br>
+    <a href="/zakupione">View Purchased Items</a>
+</body>
+</html>
